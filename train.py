@@ -35,7 +35,11 @@ def train_step(engine, batch):
     loss = reconstr_loss + kl_loss
     loss.backward()
     optimizer.step()
-    return loss.item(), reconstr_loss.item(), kl_loss.item()
+    return {
+            'loss':loss.item(),
+            'reconstr_loss':reconstr_loss.item(), 
+            'kl_loss':kl_loss.item()
+            }
 
 trainer = Engine(train_step)
 

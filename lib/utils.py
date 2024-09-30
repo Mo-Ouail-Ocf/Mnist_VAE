@@ -33,7 +33,7 @@ def attach_ignite(
     
     tb_logger = TensorboardLogger(log_dir ='./vae_log')
 
-    tqdm_train = tqdm_logger.ProgressBar().attach(trainer,output_transform=lambda x:x[0])
+    tqdm_train = tqdm_logger.ProgressBar().attach(trainer,output_transform=lambda x:x['loss'])
 
     
     tb_logger.attach_output_handler(
@@ -52,7 +52,7 @@ def attach_ignite(
         nn_input_images = input_images.view(-1, 784)
 
         # construct images
-        constrcured_imgs = model(nn_input_images)
+        constrcured_imgs ,_,_ = model(nn_input_images)
         constrcured_imgs= constrcured_imgs.view(-1,1,28,28)
         # Prepare the images to be logged
         input_grid = make_grid(input_images, normalize=True, value_range=(0, 1)).cpu()

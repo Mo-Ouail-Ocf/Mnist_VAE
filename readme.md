@@ -53,8 +53,14 @@ Once trained, the VAE is able to:
 2. **Reconstruct input images** with reasonable accuracy.
 
 Here are sample results:
-- **Generated Images**: The model can generate new images of digits that resemble the training data.
-- **Reconstructed Images**: The input digits are reconstructed through the encoder-decoder pipeline, showing the model's ability to learn compressed representations.
+- **Reconstructed Images**: The input digits are reconstructed through the encoder-decoder pipeline, showing the model's ability to learn compressed representations
+- Input images : 
+![input](./docs/input_images.png)
+- Reconstructed images : 
+![output](./docs/reconst_imgs.png)
+
+- **Latent space visualization** (using pca):
+![pca](./docs/latent_space_viz.png)
 
 ---
 
